@@ -1,0 +1,2 @@
+javac -cp ".;lib\*;bin" -d bin test/TestFunctionsTest.java
+java -cp ".;lib\*;bin" org.junit.platform.console.ConsoleLauncher --scan-classpath 

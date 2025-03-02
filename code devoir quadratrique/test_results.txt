@@ -1,0 +1,36 @@
+Résultats détaillés des tests :
+================================
+Test #1 (a=0.0, b=-1.0E10, c=1.0E-10): Succès: exception correctement levée pour a=0.
+Test #2 (a=0.3333333333333333, b=1.0E-10, c=-1.0E10): Succès: deux racines trouvées (discriminant = 1.3333333333333332E10).
+Test #3 (a=-0.3333333333333333, b=1.0E10, c=-1.0E-10): Succès: deux racines trouvées (discriminant = 1.0E20).
+Test #5 (a=-1.0E-10, b=-1.0E-10, c=0.0): Succès: deux racines trouvées (discriminant = 1.0000000000000001E-20).
+Test #6 (a=1.0E10, b=0.3333333333333333, c=-0.3333333333333333): Succès: deux racines trouvées (discriminant = 1.3333333333444443E10).
+Test #7 (a=-1.0E10, b=-0.3333333333333333, c=1.0E10): Succès: deux racines trouvées (discriminant = 4.0E20).
+Test #8 (a=0.0, b=0.0, c=0.0): Succès: exception correctement levée pour a=0.
+Test #11 (a=1.0E-10, b=0.3333333333333333, c=0.0): Succès: deux racines trouvées (discriminant = 0.1111111111111111).
+Test #12 (a=-1.0E-10, b=0.0, c=1.0E10): Succès: deux racines trouvées (discriminant = 4.0).
+Test #13 (a=1.0E10, b=0.0, c=-1.0E-10): Succès: deux racines trouvées (discriminant = 4.0).
+Test #15 (a=0.0, b=-0.3333333333333333, c=-1.0E10): Succès: exception correctement levée pour a=0.
+Test #16 (a=0.0, b=1.0E-10, c=1.0E10): Succès: exception correctement levée pour a=0.
+Test #17 (a=0.0, b=-1.0E-10, c=-0.3333333333333333): Succès: exception correctement levée pour a=0.
+Test #18 (a=0.0, b=1.0E10, c=0.3333333333333333): Succès: exception correctement levée pour a=0.
+Test #19 (a=0.3333333333333333, b=-1.0E10, c=0.0): Succès: deux racines trouvées (discriminant = 1.0E20).
+Test #23 (a=1.0E10, b=-1.0E-10, c=-1.0E10): Succès: deux racines trouvées (discriminant = 4.0E20).
+Test #25 (a=-1.0E-10, b=-0.3333333333333333, c=-1.0E-10): Succès: deux racines trouvées (discriminant = 0.1111111111111111).
+Test #26 (a=1.0E-10, b=1.0E-10, c=-1.0E-10): Succès: deux racines trouvées (discriminant = 5.0000000000000005E-20).
+Test #27 (a=-1.0E10, b=-1.0E10, c=0.3333333333333333): Succès: deux racines trouvées (discriminant = 1.0000000001333333E20).
+Test #28 (a=1.0E-10, b=1.0E10, c=1.0E-10): Succès: deux racines trouvées (discriminant = 1.0E20).
+Test #30 (a=-0.3333333333333333, b=1.0E-10, c=1.0E-10): Succès: deux racines trouvées (discriminant = 1.3333333334333333E-10).
+Test #33 (a=0.3333333333333333, b=-1.0E-10, c=-1.0E-10): Succès: deux racines trouvées (discriminant = 1.3333333334333333E-10).
+Test #34 (a=-0.3333333333333333, b=-1.0E-10, c=0.3333333333333333): Succès: deux racines trouvées (discriminant = 0.4444444444444444).
+Test #36 (a=-1.0E10, b=-1.0E-10, c=1.0E-10): Succès: deux racines trouvées (discriminant = 4.0).
+Test #37 (a=0.0, b=0.3333333333333333, c=-1.0E-10): Succès: exception correctement levée pour a=0.
+Test #39 (a=-0.3333333333333333, b=-0.3333333333333333, c=0.0): Succès: deux racines trouvées (discriminant = 0.1111111111111111).
+Test #40 (a=1.0E-10, b=-0.3333333333333333, c=-0.3333333333333333): Succès: deux racines trouvées (discriminant = 0.11111111124444444).
+Test #41 (a=-1.0E-10, b=-1.0E10, c=-1.0E-10): Succès: deux racines trouvées (discriminant = 1.0E20).
+Test #43 (a=-1.0E10, b=1.0E-10, c=0.0): Succès: deux racines trouvées (discriminant = 1.0000000000000001E-20).
+Test #44 (a=-1.0E-10, b=0.3333333333333333, c=1.0E-10): Succès: deux racines trouvées (discriminant = 0.1111111111111111).
+Test #45 (a=-1.0E10, b=1.0E10, c=0.0): Succès: deux racines trouvées (discriminant = 1.0E20).
+Test #46 (a=1.0E10, b=-1.0E10, c=-0.3333333333333333): Succès: deux racines trouvées (discriminant = 1.0000000001333333E20).
+Test #50 (a=-1.0E-10, b=0.3333333333333333, c=0.3333333333333333): Succès: deux racines trouvées (discriminant = 0.11111111124444444).
+Test #51 (a=1.0E10, b=-0.3333333333333333, c=0.0): Succès: deux racines trouvées (discriminant = 0.1111111111111111).
