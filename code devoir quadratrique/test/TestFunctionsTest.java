@@ -8,7 +8,6 @@ public class TestFunctionsTest {
 
     private static final double TOLERANCE = 1e-4; // Tolérance pour les comparaisons de flottants
     private static final Map<String, Double> featureMap = new HashMap<>();
-    // Liste pour stocker les logs détaillés de chaque test
     private static final List<String> testLogs = new ArrayList<>();
 
     static {
@@ -43,20 +42,17 @@ public class TestFunctionsTest {
     @TestFactory
     Collection<DynamicTest> generateTestsFromFile() throws IOException {
         Collection<DynamicTest> dynamicTests = new ArrayList<>();
-        // Lecture du fichier en UTF-16 (adapté à ton encodage)
         try (BufferedReader br = new BufferedReader(
                 new InputStreamReader(new FileInputStream("test_cases.txt"), StandardCharsets.UTF_16))) {
             String line;
             int testNumber = 1;
             while ((line = br.readLine()) != null) {
-                // Nettoyer la ligne (suppression des espaces en début/fin, du BOM, et des
-                // caractères parasites)
+
                 line = line.trim().replace("\uFEFF", "");
                 if (line.isEmpty()) {
-                    continue; // Ignorer les lignes vides
+                    continue;
                 }
                 String[] features = line.split(" ");
-                // Nettoyer chaque clé (suppression de "ÿþ" par exemple)
                 for (int i = 0; i < features.length; i++) {
                     features[i] = features[i].replaceAll("ÿþ", "");
                 }
@@ -64,7 +60,6 @@ public class TestFunctionsTest {
                     throw new IllegalArgumentException("Chaque ligne doit contenir exactement 3 clés.");
                 }
 
-                // Vérification que les clés existent dans le mapping
                 if (!featureMap.containsKey(features[0])) {
                     throw new IllegalArgumentException("Clé non trouvée pour a : " + features[0]);
                 }
@@ -78,9 +73,9 @@ public class TestFunctionsTest {
                 double a = featureMap.get(features[0]);
                 double b = featureMap.get(features[1]);
                 double c = featureMap.get(features[2]);
-                final int currentTestNumber = testNumber; // Copie de testNumber pour la lambda
+                final int currentTestNumber = testNumber;
 
-                // Création d'un test dynamique pour cette ligne
+                // test dynamique de la lifne
                 dynamicTests.add(DynamicTest.dynamicTest(
                         "Test #" + currentTestNumber + " (a=" + a + ", b=" + b + ", c=" + c + ")",
                         () -> {
@@ -103,37 +98,32 @@ public class TestFunctionsTest {
                             } else {
                                 double discriminant = b * b - 4 * a * c;
                                 if (discriminant < 0) {
-                                    // Pour un discriminant négatif, on attend aucune solution réelle.
                                     double[] roots = TestFunctions.solveQuadratic(a, b, c);
                                     assertEquals(0, roots.length,
                                             "Aucune solution réelle attendue pour discriminant négatif.");
                                     logEntry.append("Succès: aucune solution réelle (discriminant = ")
                                             .append(discriminant).append(").");
                                 } else {
-                                    // Pour discriminant positif ou nul, on attend les solutions
                                     double[] roots = TestFunctions.solveQuadratic(a, b, c);
-                                    // Vérifier la validité de chaque racine calculée
                                     for (double root : roots) {
                                         double result = a * root * root + b * root + c;
                                         assertTrue(Math.abs(result) < TOLERANCE,
                                                 String.format("La racine %.10f ne satisfait pas l'équation : %.10f",
                                                         root, result));
-                                        // logEntry.append("Echec ! : La racine " + root
-                                        // + " ne satisfait pas l'équation : " + result);
+
                                     }
                                     if (discriminant > 0) {
                                         assertEquals(2, roots.length,
                                                 "Deux racines attendues pour un discriminant positif.");
                                         logEntry.append("Succès: deux racines trouvées (discriminant = ")
                                                 .append(discriminant).append(").");
-                                    } else { // discriminant == 0
+                                    } else {
                                         assertEquals(1, roots.length,
                                                 "Une racine double attendue pour un discriminant nul.");
                                         logEntry.append("Succès: une racine double trouvée (discriminant = 0).");
                                     }
                                 }
                             }
-                            // Ajouter le log du test dans la liste
                             synchronized (testLogs) {
                                 testLogs.add(logEntry.toString());
                             }
@@ -146,7 +136,7 @@ public class TestFunctionsTest {
 
     @AfterAll
     static void exportResults() {
-        // Exporter tous les logs dans le fichier "test_results.txt"
+        // tous les logs dans le fichier "test_results.txt"
         try (PrintWriter writer = new PrintWriter(new FileWriter("test_results.txt"))) {
             writer.println("Résultats détaillés des tests :");
             writer.println("================================");
